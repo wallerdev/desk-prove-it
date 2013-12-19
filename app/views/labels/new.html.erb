@@ -1,0 +1,13 @@
+<%= form_tag(labels_path) do %>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input name="name" type="text" class="form-control" placeholder="Enter name">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea name="description" class="form-control" rows="3" placeholder="Enter description"></textarea>
+  </div>
+  <div class="form-group">
+    <input type="submit" class="btn btn-default" value="Create Label">
+  </div>
+<% end %>

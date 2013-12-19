@@ -1,7 +1,14 @@
+<h1>Labels</h1>
+
 <table class="table" id="cases">
   <% @labels.each do |desk_label| %>
   <tr>
     <td><%= desk_label['name'] %></td>
+    <td>
+      <button type="button" class="btn btn-default">Assign to first case</button>
+    </td>
   </tr>
   <% end %>
 </table>
+
+<%= link_to 'Create a new label', new_label_path %>
