@@ -1,4 +1,7 @@
-<% @cases.each do |desk_case| %>
-  <%= desk_case['subject'] %>
-
-<% end %>
+<table class="table" id="cases">
+  <% @cases.each do |desk_case| %>
+  <tr>
+    <td><%= desk_case['subject'] %></td>
+  </tr>
+  <% end %>
+</table>

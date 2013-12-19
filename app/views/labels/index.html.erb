@@ -1,4 +1,7 @@
-<% @labels.each do |desk_label| %>
-  <%= desk_label['name'] %>
-
-<% end %>
+<table class="table" id="cases">
+  <% @labels.each do |desk_label| %>
+  <tr>
+    <td><%= desk_label['name'] %></td>
+  </tr>
+  <% end %>
+</table>
