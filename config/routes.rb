@@ -6,6 +6,7 @@ DeskProveIt::Application.routes.draw do
   # root 'welcome#index'
   
   resources :cases, only: [:index]
+  resources :labels, only: [:index]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

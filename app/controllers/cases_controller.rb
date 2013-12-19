@@ -1,3 +1,5 @@
+require 'desk_api'
+
 class CasesController < ApplicationController
   def index
     api = DeskAPI.new
