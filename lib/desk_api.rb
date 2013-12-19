@@ -30,6 +30,11 @@ class DeskAPI
   def filters
     request_json('/api/v2/filters')
   end
+  
+  # http://dev.desk.com/API/filters/#show
+  def filtered_cases(filter)
+    request_json(filter['_links']['self']['href'])
+  end
 
   # http://dev.desk.com/API/labels/#create
   # Note: it seems we can't create a label with a name that already exists, even if the label has been deleted?
