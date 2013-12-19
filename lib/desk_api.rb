@@ -15,17 +15,45 @@ class DeskAPI
       :oauth_token_secret => ENV['DESK_API_OAUTH_SECRET']
     )
   end
-  
+
+  # http://dev.desk.com/API/cases/#list
   def cases
     request_json('/api/v2/cases')
   end
-  
+    
+  # http://dev.desk.com/API/labels/#list
   def labels
     request_json('/api/v2/labels')
+  end
+
+  # http://dev.desk.com/API/labels/#create
+  # Note: it seems we can't create a label with a name that already exists, even if the label has been deleted?
+  def create_label(name, description, types, color)    
+    data = {
+      'name' => name,
+      'description' => description,
+      'types' => types,
+      'color' => color
+    }
+    
+
+    result = @access_token.post(
+      "#{SITE}/api/v2/labels", 
+      data.to_json, 
+      {'Accept'=>'application/json', 'Content-Type' => 'application/json'}
+    )
+
+    JSON.parse(result.body)
+  end
+  
+  # http://dev.desk.com/API/labels/#delete
+  def delete_label(url)
+    @access_token.delete("#{SITE}#{url}")
   end
   
   private
   
+  # Submit a GET request to the Desk API using oauth, and return the resulting JSON.
   def request_json(url)
     JSON.parse(@access_token.get("#{SITE}#{url}").body)
   end
