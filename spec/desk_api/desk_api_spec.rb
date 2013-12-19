@@ -63,6 +63,6 @@ describe DeskAPI, '#filtered_cases' do
     api = DeskAPI.new
     filter = api.filters['_embedded']['entries'][0]
     
-    expect(api.filtered_cases(filter)['_links']['self']['href']).to match(/filters\/\d+/)
+    expect(api.filtered_cases(filter)['_links']['self']['href']).to match(/filters\/\d+\/cases/)
   end
 end

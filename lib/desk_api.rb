@@ -33,7 +33,7 @@ class DeskAPI
   
   # http://dev.desk.com/API/filters/#show
   def filtered_cases(filter)
-    request_json(filter['_links']['self']['href'])
+    request_json("#{filter['_links']['self']['href']}/cases")
   end
 
   # http://dev.desk.com/API/labels/#create
