@@ -51,3 +51,10 @@ describe DeskAPI, '#delete_label' do
   end
 end
 
+describe DeskAPI, '#filters' do
+  it "should return a list of filters" do
+    api = DeskAPI.new
+    expect(api.filters['_links']['self']['href']).to match('filters')
+  end
+end
+

@@ -25,6 +25,11 @@ class DeskAPI
   def labels
     request_json('/api/v2/labels')
   end
+  
+  # http://dev.desk.com/API/filters/#list
+  def filters
+    request_json('/api/v2/filters')
+  end
 
   # http://dev.desk.com/API/labels/#create
   # Note: it seems we can't create a label with a name that already exists, even if the label has been deleted?
@@ -35,7 +40,6 @@ class DeskAPI
       'types' => types,
       'color' => color
     }
-    
 
     result = @access_token.post(
       "#{SITE}/api/v2/labels", 
