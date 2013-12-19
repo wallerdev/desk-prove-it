@@ -17,3 +17,4 @@
 
 # Ignore database.yml for heroku.
 /config/database.yml
+/config/app_environment_variables.rb
