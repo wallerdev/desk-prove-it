@@ -8,7 +8,8 @@ feature 'Label Management' do
   
   scenario 'User assigns label to first case' do
     visit labels_path
-    expect(page).to have_content 'Assign to first case'
+    page.first('[value="Assign to first case"]').click
+    expect(page).to have_content 'Assigned label to first case'
   end
   
   scenario 'User creates a new label' do

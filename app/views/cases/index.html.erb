@@ -1,9 +1,14 @@
 <h1><%= @first_filter['name'] %></h1>
 
 <table class="table" id="cases">
+  <tr>
+    <th>Subject</th>
+    <th>Labels</th>
+  </tr>
   <% @cases.each do |desk_case| %>
   <tr>
     <td><%= desk_case['subject'] %></td>
+    <td><%= desk_case['labels'] %></td>
   </tr>
   <% end %>
 </table>

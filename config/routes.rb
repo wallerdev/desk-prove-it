@@ -5,7 +5,7 @@ DeskProveIt::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'cases#index'
   
-  resources :cases, only: [:index]
+  resources :cases, only: [:index, :update]
   resources :labels, only: [:index, :new, :create]
 
   # Example of regular route:

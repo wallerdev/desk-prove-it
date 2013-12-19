@@ -60,6 +60,21 @@ class DeskAPI
     @access_token.delete("#{SITE}#{url}")
   end
   
+  # http://dev.desk.com/API/cases/#update
+  def assign_label(desk_case, label)
+    data = {
+      "labels" => [label]
+    }
+    
+    result = @access_token.put(
+      "#{SITE}#{desk_case['_links']['self']['href']}",
+      data.to_json,
+      {'Accept'=>'application/json', 'Content-Type' => 'application/json'}
+    )
+    
+    JSON.parse(result.body)
+  end
+  
   private
   
   # Submit a GET request to the Desk API using oauth, and return the resulting JSON.

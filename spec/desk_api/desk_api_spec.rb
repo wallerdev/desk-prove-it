@@ -66,3 +66,15 @@ describe DeskAPI, '#filtered_cases' do
     expect(api.filtered_cases(filter)['_links']['self']['href']).to match(/filters\/\d+\/cases/)
   end
 end
+
+describe DeskAPI, '#assign_label' do
+  it "should assign a label to a given case" do
+    api = DeskAPI.new
+    desk_case = api.cases['_embedded']['entries'][0]
+    label = api.labels['_embedded']['entries'][0]
+    
+    result = api.assign_label(desk_case, label['name'])
+    
+    expect(result['labels'].include? label['name']).to eq(true)
+  end
+end
